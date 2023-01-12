@@ -1,0 +1,27 @@
+.form-card {
+  margin: 2rem auto;
+  padding: 1rem;
+  width: 90%;
+  max-width: 40rem;
+}
+
+.form-card label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.form-card input {
+  font: inherit;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  display: block;
+  width: 100%;
+  padding: 0.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.form-card input:focus {
+  outline: none;
+  border-color: #000096;
+}
