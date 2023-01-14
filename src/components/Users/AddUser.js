@@ -3,17 +3,28 @@ import Card from "../UI/Card";
 import Button from "../UI/Button";
 import styles from "./AddUser.module.css";
 import ErrorModal from "../UI/ErrorModal";
+import Wrapper from "../Helpers/Wrapper";
 function AddUser(props) {
   const [enteredUsername, setEnteredUsername] = useState("");
   const [enteredAge, setEnteredAge] = useState("");
   const [isValidInput, setIsValidInput] = useState(true);
+  const [error, setError] = useState();
 
   const addUserHandler = (event) => {
     event.preventDefault();
     if (enteredUsername.trim().length === 0 || enteredAge.trim().length === 0) {
+      setError({
+        title: "Invalid input",
+        message:
+          "Both fields are required! Please enter valid username and age.",
+      });
       return;
     }
     if (+enteredAge < 1) {
+      setError({
+        title: "Invalid input",
+        message: "Please enter a valid age value (> 0).",
+      });
       return;
     }
 
@@ -35,12 +46,19 @@ function AddUser(props) {
     setEnteredAge(event.target.value);
   };
 
+  const errorHandler = () => {
+    setError(null);
+  };
+
   return (
-    <div>
-      <ErrorModal
-        title={"An error occured!"}
-        message={"Something went wrong!"}
-      />
+    <Wrapper>
+      {error && (
+        <ErrorModal
+          onError={errorHandler}
+          title={error.title}
+          message={error.message}
+        />
+      )}
       <Card className={styles["form-card"]}>
         <form onSubmit={addUserHandler}>
           <label htmlFor="username">Username</label>
@@ -60,7 +78,7 @@ function AddUser(props) {
           <Button type="submit">Add User</Button>
         </form>
       </Card>
-    </div>
+    </Wrapper>
   );
 }
 export default AddUser;
