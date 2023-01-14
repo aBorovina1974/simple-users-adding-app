@@ -1,0 +1,38 @@
+.modal-card__backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.modal-card {
+  position: fixed;
+  top: 30vh;
+  left: 10%;
+  width: 80%;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.modal-card__header {
+  background: #000096;
+  padding: 1rem;
+}
+
+.modal-card__header h2 {
+  color: white;
+  margin: 0;
+}
+
+.modal-card__content {
+  padding: 1rem;
+}
+
+.modal-card__footer {
+  padding: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
