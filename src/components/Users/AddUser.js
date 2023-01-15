@@ -1,13 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import Card from "../UI/Card";
 import Button from "../UI/Button";
 import styles from "./AddUser.module.css";
 import ErrorModal from "../UI/ErrorModal";
-import Wrapper from "../Helpers/Wrapper";
 function AddUser(props) {
   const [enteredUsername, setEnteredUsername] = useState("");
   const [enteredAge, setEnteredAge] = useState("");
-  const [isValidInput, setIsValidInput] = useState(true);
   const [error, setError] = useState();
 
   const addUserHandler = (event) => {
@@ -51,7 +49,7 @@ function AddUser(props) {
   };
 
   return (
-    <Wrapper>
+    <Fragment>
       {error && (
         <ErrorModal
           onError={errorHandler}
@@ -78,7 +76,7 @@ function AddUser(props) {
           <Button type="submit">Add User</Button>
         </form>
       </Card>
-    </Wrapper>
+    </Fragment>
   );
 }
 export default AddUser;

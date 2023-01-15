@@ -1,0 +1,35 @@
+.modal-card {
+  position: fixed;
+  top: 30vh;
+  left: 10%;
+  width: 80%;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.modal-card__header {
+  background: #000096;
+  padding: 1rem;
+}
+
+.modal-card__header h2 {
+  color: white;
+  margin: 0;
+}
+
+.modal-card__content {
+  padding: 1rem;
+}
+
+.modal-card__footer {
+  padding: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (min-width: 768px) {
+  .modal-card {
+    left: calc(50% - 20rem);
+    width: 40rem;
+  }
+}
